@@ -14,8 +14,10 @@ Use solution domain names: The ones who read the code are familiar with computer
 Add meaningful context: Add context which makes it easier for the reader to understand which part of the structure variables, functions ect. belong to. However, avoid redundant prefixes of context. Keep the names short and precise and clear.
 
 Example of good naming:
+
+
+```Javascript
 // Good naming and single responsibility
-'''
 public class OrderProcessor
 {
     public void ProcessOrder(Order order)
@@ -26,7 +28,7 @@ public class OrderProcessor
         }
     }
 }
-'''
+```
 
 
 #### 2. Function Design
@@ -40,17 +42,22 @@ Good comments:
 “The best comment, is the comment you found a way not to write”
 Your comments should explain your code, often you should focus on the “why” and not what the code does. 
 Keep your comments clear and concise, and use them sparingly. 
+
 Bad comments: 
 Avoid comments that state the obvious.
 Remember that the comments are also used and read by others, so don't use them as a personal notepad. 
 If your comment is longer than your code, it’s probably redundant. 
 
 Example of a bad comment:
+
+
+```Javascript
 // Calculates total price from given prices, returns total price calculated within the function
 Function calculateTotalPrice(price: int[]) {
 …
 Return totalPrice;
 };
+```
 
 #### 4. Formatting and refactoring
 A good rule of thumb is to clean your code as you go, so for every few lines you add, take a moment to reflect on your code and remove any redundant code. 
@@ -61,6 +68,7 @@ Don’t leave it to the next person to re-format your code.
 Use Exceptions: Prefer using exceptions over return codes for error handling.
 Context in Exceptions: Provide context in exceptions to make troubleshooting easier.
 Eg.
+```C#
 public void ReadFile(string filePath)
 {
     try
@@ -81,12 +89,13 @@ public void ReadFile(string filePath)
         throw;
     }
 }
-
+```
 
 
 #### 6. Boundaries
 Use Wrappers for External APIs: Create wrappers around external libraries and APIs.
 
+```C#
 // External API call
 ExternalLibrary.SomeMethod();
 
@@ -96,19 +105,22 @@ public class ExternalApiWrapper {
         ExternalLibrary.SomeMethod();
     }
 }
+```
 
 Learn Through Tests: Write learning tests to understand how the library works.
-
+```C#
 [Test]
 public void TestExternalMethodBehavior() {
     var wrapper = new ExternalApiWrapper();
     Assert.AreEqual(expectedBehavior, wrapper.SomeMethodWrapper());
 }
-
+```
 
 
 #### 7. Unit Testing
 Test-Driven Development: Write tests before implementing functionalities.
+
+```C#
 // First write this test
 [Test]
 public void ShouldCalculateSumCorrectly() {
@@ -121,9 +133,10 @@ public class Calculator {
         return a + b;
     }
 }
-
+```
 
 One Assert Per Test: Ensure each test asserts only one condition.
+```C#
 // Instead of combining multiple asserts
 [Test]
 public void TestUserProfile() {
@@ -151,11 +164,12 @@ public void LastNameShouldBeCorrect() {
     var userProfile = new UserProfile("JohnDoe", "John", "Doe");
     Assert.AreEqual("Doe", userProfile.LastName);
 }
-
+```
 
 #### 8. Objects and Data Structures
 Encapsulation: Hide internal data and expose necessary functionalities. For example, in C#, use properties instead of public fields.
 Eg.
+```C#
 public class Box {
     private int length;
     public Box(int initialLength) {
@@ -168,6 +182,7 @@ public class Box {
         return length;
     }
 }
+```
 
 The length variable is private, so it cannot be accessed directly from outside the Box class.
 The constructor Box(int initialLength) allows setting the initial length of the box.
