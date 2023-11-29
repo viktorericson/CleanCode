@@ -1,5 +1,9 @@
 # Clean Code
 
+
+> The objective of this guideline is to ensure consistency, readability, and maintainability in our code. It is essential for all contributors, both current and future, to familiarize themselves with these standards and apply them. Before pushing any code to the repository, students should review their work to ensure it adheres to these guidelines.
+
+
 #### 1. Naming Conventions
 - **Clear and Intentional**: Use names that reveal intention. For example, in C#, int elapsedTimeInDays; rather than int e;.
 - **Avoid Misleading Names**: Ensure names do not mislead about the code's functionality. For example, avoid calling a collection of users as usersList if it is not a list.
