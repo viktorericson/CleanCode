@@ -15,7 +15,7 @@ Add meaningful context: Add context which makes it easier for the reader to unde
 
 Example of good naming:
 // Good naming and single responsibility
-'''Javascript
+'''
 public class OrderProcessor
 {
     public void ProcessOrder(Order order)
