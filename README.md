@@ -4,7 +4,7 @@
 > The objective of this guideline is to ensure consistency, readability, and maintainability in our code. It is essential for all contributors, both current and future, to familiarize themselves with these standards and apply them. Before pushing any code to the repository, students should review their work to ensure it adheres to these guidelines.
 
 
-#### 1. Naming Conventions
+### 1. Naming Conventions
 - **Clear and Intentional**: Use names that reveal intention. For example, in C#, int elapsedTimeInDays; rather than int e;.
 - **Avoid Misleading Names**: Ensure names do not mislead about the code's functionality. For example, avoid calling a collection of users as usersList if it is not a list.
 - **Make meaningful distinctions**:The different things in a scope should have distinguishable meanings, which covers not misspelling words, adding numbers and noise words. For example, referring to two different age variables by int age and int ageVariable
@@ -34,13 +34,13 @@ public class OrderProcessor
 ```
 
 
-#### 2. Function Design
+### 2. Function Design
 - **Single Responsibility**: Each function should do one thing only. For instance, in JavaScript, a function calculateTotalPrice() should only calculate and return the total price, not format it.
 - **Small Size and Descriptive Names**: Functions should be small and have descriptive names. E.g., in C#, void ProcessCustomerOrder() rather than void Process().
 - **Function arguments**: Limit the amount of function arguments. 
 - **Avoid unexpecting behavior**: The function should not perform other tasks than what is expected of them. For example, unexpecting changes of variables.
 
-#### 3. Comments Usage
+### 3. Comments Usage
 
 **Good comments:**
 - “The best comment, is the comment you found a way not to write”
@@ -63,12 +63,12 @@ Return totalPrice;
 };
 ```
 
-#### 4. Formatting and refactoring
+### 4. Formatting and refactoring
  -A good rule of thumb is to clean your code as you go, so for every few lines you add, take a moment to reflect on your code and remove any redundant code. 
 - Keep the same formatting principles throughout the project.
 - Don’t leave it to the next person to re-format your code. 
 
-#### 5. Error handling
+### 5. Error handling
 - **Use Exceptions**: Prefer using exceptions over return codes for error handling.
 - **Context in Exceptions**: Provide context in exceptions to make troubleshooting easier.
   
@@ -97,7 +97,7 @@ public void ReadFile(string filePath)
 ```
 
 
-#### 6. Boundaries
+### 6. Boundaries
 
 - **Use Wrappers for External APIs**: Create wrappers around external libraries and APIs.
 
@@ -123,7 +123,7 @@ public void TestExternalMethodBehavior() {
 ```
 
 
-#### 7. Unit Testing
+### 7. Unit Testing
 
 **Test-Driven Development**: Write tests before implementing functionalities.
 
@@ -173,7 +173,7 @@ public void LastNameShouldBeCorrect() {
 }
 ```
 
-#### 8. Objects and Data Structures
+### 8. Objects and Data Structures
 
 - **Encapsulation**: Hide internal data and expose necessary functionalities. For example, in C#, use properties instead of public fields.
 Eg.
@@ -196,7 +196,7 @@ public class Box {
 - The constructor **Box(int initialLength)** allows setting the initial length of the box.
 - Public methods **setLength(int newLength)** and **getLength()** are provided to modify and access the **length** respectively, adhering to the principles of encapsulation.
 
-#### 9. Classes
+### 9. Classes
 
 - **Single Responsibility Principle (SRP)**: Create classes with a single, well-defined purpose. Refactor if responsibilities multiply.
 - **Encapsulation**: Hide internal complexities, expose necessary interfaces, and minimize dependencies.
@@ -205,7 +205,7 @@ public class Box {
 - **Coupling**: Minimize interdependencies between classes for flexibility and maintainability.
 - **Continuous Refactoring**: Regularly review and refactor classes to maintain cleanliness and address technical debt.
 
-#### 10. Systems
+### 10. Systems
 
 - **Separation of Concerns**: Partition systems into distinct sections, each addressing a separate concern or functionality.
 - **Modularity**: Design systems with cohesive modules, keeping related functionalities together.
