@@ -33,6 +33,21 @@ public class OrderProcessor
 }
 ```
 
+**Example of bad naming**
+```Javascript
+// Good naming and single responsibility
+public class OP
+{
+    public void PO(O o)
+    {
+        if (o.IsValid())
+        {
+            // Process the order
+        }
+    }
+}
+```
+
 
 ### 2. Function Design
 - **Single Responsibility**: Each function should do one thing only. For instance, in JavaScript, a function calculateTotalPrice() should only calculate and return the total price, not format it.
@@ -205,6 +220,49 @@ public class Box {
 - **Coupling**: Minimize interdependencies between classes for flexibility and maintainability.
 - **Continuous Refactoring**: Regularly review and refactor classes to maintain cleanliness and address technical debt.
 
+  **An example of these principles:**
+
+```JavaScript
+class Book {
+    constructor(title, author) {
+        this._title = title;
+        this._author = author;
+    }
+
+    getTitle() {
+        return this._title;
+    }
+
+    getAuthor() {
+        return this._author;
+    }
+}
+
+class Library {
+    constructor() {
+        this._books = [];
+    }
+
+    addBook(book) {
+        this._books.push(book);
+    }
+
+    findBooksByAuthor(author) {
+        return this._books.filter(book => book.getAuthor() === author);
+    }
+}
+
+// Example usage
+const book1 = new Book("1984", "George Orwell");
+const book2 = new Book("Harry Potter and the Goblet Of Fire", "J. K. Rowling");
+
+const library = new Library();
+library.addBook(book1);
+library.addBook(book2);
+
+console.log(library.findBooksByAuthor("George Orwell"));
+```
+
 ### 10. Systems
 
 - **Separation of Concerns**: Partition systems into distinct sections, each addressing a separate concern or functionality.
@@ -214,3 +272,43 @@ public class Box {
 - **Layered Architecture**: Employ a layered architecture for clear separation of responsibilities and easier maintenance.
 - **Dependency Management**: Manage dependencies carefully. Favorloosely  coupled components over tightly coupled ones.
 - **Continuous Evaluation and Improvement**: Regularly assess and refine the system’s architecture to accommodate evolving requirements and technologies.
+
+<details>
+    <summary>
+        See example here:
+    </summary>
+    <br>
+    
+    - Separation of Concerns:
+        The system is divided into different sections such as User Interface (UI), Business Logic, and Data Storage.
+        UI handles user interactions and display.
+        Business Logic handles the core functionality like managing book inventories, processing orders, and user accounts.
+        Data Storage is concerned with storing and retrieving data, like book details and user information.
+
+    - Modularity:
+        The system is broken down into modules such as a User Module (handling user accounts and profiles), a Catalog Module (managing book listings), and an Order Module (processing purchases and tracking orders).
+        Each module is self-contained and focuses on a specific subset of the system's functionality.
+
+    - Abstraction:
+        The system uses abstract interfaces to interact between modules. For example, an OrderInterface might expose methods for placing and tracking orders without revealing the underlying logic.
+        This allows changes to be made to the implementation of one module without affecting others that depend on it.
+
+    - Decoupling:
+        Modules interact with each other through interfaces or service contracts rather than direct implementation. This minimizes the dependencies between them.
+        For example, the Order Module doesn't need to know the internal workings of the User Module, it just needs to know how to get the necessary user details through a defined interface.
+
+    - Layered Architecture:
+        The system uses a three-tier architecture: Presentation Layer (UI), Business Logic Layer, and Data Access Layer.
+        Each layer has a specific role and communicates with the other layers in a controlled manner.
+        This separation allows for easier maintenance and scalability of the system.
+
+    - Dependency Management:
+        The system is designed to minimize tight coupling between its components. For instance, if it uses a third-party payment gateway, it does so through an adapter that can be easily replaced if the payment service needs to change.
+        Dependencies are injected into modules rather than being hardcoded, allowing for greater flexibility and easier testing.
+
+    - Continuous Evaluation and Improvement:
+        The system's architecture is regularly reviewed for potential improvements. This might include refactoring code for better efficiency, adopting new technologies for the UI, or updating the database system for better performance.
+        Regular code reviews and performance monitoring help identify areas for improvement.
+
+This example shows how each principle contributes to a well-structured and maintainable system. By adhering to these principles, the online bookstore system becomes flexible, scalable, and easier to maintain.
+</details>
