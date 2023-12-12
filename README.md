@@ -35,7 +35,7 @@ public class OrderProcessor
 
 **Example of bad naming**
 ```Javascript
-// Good naming and single responsibility
+// Bad naming 
 public class OP
 {
     public void PO(O o)
